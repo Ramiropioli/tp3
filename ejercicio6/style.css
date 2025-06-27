@@ -1,0 +1,6 @@
+ body { font-family: sans-serif; padding: 20px; }
+    input, button { margin: 5px 0; display: block; }
+    .amarillo { background: yellow; }
+    .verde { background: lightgreen; }
+    .naranja { background: orange; }
+    .rojo { background: red; color: white; }
