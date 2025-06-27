@@ -1,0 +1,19 @@
+ body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+    }
+
+    #mensajeError {
+      color: red;
+      margin-top: 10px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    button {
+      margin-right: 10px;
+    }
+  
