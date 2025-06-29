@@ -19,6 +19,11 @@
   numero2Input.addEventListener("input", validarDivisionPorCero);
   operacionSelect.addEventListener("change", validarDivisionPorCero);
 
+ formulario.addEventListener("submit",function (e) {
+
+    e.preventDefault();
+    if (botonCalcular.disabled) return; 
+
   botonCalcular.addEventListener("click", () => {
     const num1 = parseFloat(numero1Input.value);
     const num2 = parseFloat(numero2Input.value);
@@ -49,3 +54,4 @@
 
     resultadoDiv.innerText = "Resultado: " + resultado;
   });
+ });
