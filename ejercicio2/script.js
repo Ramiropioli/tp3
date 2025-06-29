@@ -4,13 +4,13 @@
   const mensajeError = document.getElementById("mensajeError");
   const inputTexto = document.getElementById("filtroTexto");
   const botonFiltrar = document.getElementById("botonFiltrar");
- 
+  const formulario = document.getElementById("filtrar");
 
 
   mostrarPalabras(palabras);
 
   
-  botonFiltrar.addEventListener("click", filtrarPalabras);
+  formulario.addEventListener("submit", filtrarPalabras);
   
 
   function mostrarPalabras(lista) {
@@ -22,7 +22,8 @@
     });
   }
 
-  function filtrarPalabras() {
+  function filtrarPalabras(e) {
+  e.preventDefault();
     const texto = inputTexto.value.trim().toLowerCase();
     mensajeError.innerText = "";
 
