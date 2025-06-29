@@ -9,16 +9,9 @@ function Calculadora() {
   const n2 = parseFloat(num2);
   const esDivisionPorCero = operacion === "division" && n2 === 0;
 
-  React.useEffect(() => {
-    if (esDivisionPorCero) {
-      setError("Error: no se puede dividir por cero.");
-      setResultado(null);
-    } else {
-      setError("");
-    }
-  }, [operacion, num2]);
-
-  const calcular = () => {
+    
+  const calcular = (e) => {
+    e.preventDefault();
     if (isNaN(n1) || isNaN(n2)) {
       setResultado(null);
       setError("Por favor, ingresá números válidos.");
@@ -46,8 +39,22 @@ function Calculadora() {
     setError("");
     setResultado(res);
   };
+  if (
+  operacion === "division" &&
+  parseFloat(num2) === 0 &&
+  error !== "Error: no se puede dividir por cero."
+) {
+  setError("Error: no se puede dividir por cero.");
+  setResultado(null);
+} else if (
+  error === "Error: no se puede dividir por cero." &&
+  (operacion !== "division" || parseFloat(num2) !== 0)
+) {
+  setError("");
+}
 
   return (
+    <form onSubmit={calcular}>
     <div>
       <input
         type="number"
@@ -70,7 +77,7 @@ function Calculadora() {
         <option value="division">División</option>
       </select>
 
-      <button onClick={calcular} disabled={esDivisionPorCero}>
+      <button type="submit" disabled={esDivisionPorCero}>
         Calcular
       </button>
 
@@ -79,6 +86,7 @@ function Calculadora() {
         {resultado !== null && !error && <p>Resultado: {resultado}</p>}
       </div>
     </div>
+    </form>
   );
 }
 
